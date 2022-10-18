@@ -17,19 +17,20 @@ warnings.filterwarnings(action="ignore", category=DataConversionWarning)
 
 columns = [
     "age",
+    "class_of_worker",
     "education",
-    "major industry code",
-    "class of worker",
-    "num persons worked for employer",
-    "capital gains",
-    "capital losses",
-    "dividends from stocks",
+    "major_industry_code",
+    "capital_gains",
+    "capital_losses",
+    "dividends_from_stocks",
+    "num_persons_worked_for_employer",
     "income",
 ]
 class_labels = [0, 1]
 
 
 def print_shape(df):
+    print('*****IN print_shape df')
     negative_examples, positive_examples = np.bincount(df["income"])
     print(
         "Data shape: {}, {} positive examples, {} negative examples".format(
@@ -39,6 +40,7 @@ def print_shape(df):
 
 
 if __name__ == "__main__":
+    print('**** IN MAIN')
     parser = argparse.ArgumentParser()
     parser.add_argument("--train-test-split-ratio", type=float, default=0.3)
     args, _ = parser.parse_known_args()
@@ -49,7 +51,10 @@ if __name__ == "__main__":
 
     print("Reading input data from {}".format(input_data_path))
     df = pd.read_csv(input_data_path)
-    df = pd.DataFrame(data=df, columns=columns)
+    pd.set_option('max_columns', None)
+    print('******read_csv df', df.head(n=5))
+    # df = pd.DataFrame(data=df, columns=columns)
+    # print('******read_csv df', df.show(10))
     df.dropna(inplace=True)
     df.drop_duplicates(inplace=True)
     #df.replace(class_labels, [0, 1], inplace=True)
@@ -69,11 +74,11 @@ if __name__ == "__main__":
 
     preprocess = make_column_transformer(
         (
-            ["age", "num persons worked for employer"],
+            ["age", "num_persons_worked_for_employer"],
             KBinsDiscretizer(encode="onehot-dense", n_bins=10),
         ),
-        (["capital gains", "capital losses", "dividends from stocks"], StandardScaler()),
-        (["education", "major industry code", "class of worker"], OneHotEncoder(sparse=False)),
+        (["capital_gains", "capital_losses", "dividends_from_stocks"], StandardScaler()),
+        (["education", "major_industry_code", "class_of_worker"], OneHotEncoder(sparse=False)),
     )
     print("Running preprocessing and feature engineering transformations")
     train_features = preprocess.fit_transform(X_train)
