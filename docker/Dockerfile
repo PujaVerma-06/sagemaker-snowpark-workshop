@@ -1,0 +1,12 @@
+
+
+FROM python:3.8
+#-slim-buster
+
+RUN pip install pandas==1.1.5 numpy==1.16.5 scikit-learn==0.23.1 
+RUN pip install "snowflake-snowpark-python[pandas]"
+
+#ENV PYTHONUNBUFFERED=TRUE
+
+
+ENTRYPOINT ["python3"]
