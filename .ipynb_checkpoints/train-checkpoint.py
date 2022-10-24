@@ -5,10 +5,6 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
 
-def model_fn(model_dir):
-    clf = joblib.load(os.path.join(model_dir, "model.joblib"))
-    return clf
-
 if __name__ == "__main__":
     training_data_directory = "/opt/ml/input/data/train"
     train_features_data = os.path.join(training_data_directory, "train_features.csv")

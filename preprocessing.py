@@ -14,7 +14,7 @@ from sklearn.exceptions import DataConversionWarning
 
 warnings.filterwarnings(action="ignore", category=DataConversionWarning)
 
-
+## Write comments everywhere and include ref slide no.
 columns = [
     "age",
     "class_of_worker",
