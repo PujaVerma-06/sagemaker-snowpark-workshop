@@ -1,0 +1,37 @@
+create or replace table snowpark_dataset (
+  id	number,
+  checking_status varchar,
+  duration number,	
+  credit_history varchar,
+  purpose varchar,
+  credit_amount number,
+  savings_status varchar,
+  employment varchar,
+  installment_commitment number,
+  personal_status varchar,
+  ther_parties varchar,
+  residence_since number,
+  property_magnitude varchar,
+  age varchar,
+  other_payment_plans varchar,
+  housing varchar,
+  existing_credits number,
+  job varchar,
+  num_dependents number,
+  own_telephone varchar,
+  foreign_worker varchar,
+  class varchar
+);
+
+load credit-g.csv data from Snowflake UI
+
+CREATE STAGE IF NOT EXISTS SNOWFLAKESTAGE
+COMMENT = 'Workshop Stage in Snowflake';
+
+
+Log into Snowsight, the Snowflake web interface.
+Click the dropdown menu next to your login name, then click Switch Role » ORGADMIN to change to the organization administrator role.
+Click Admin » Billing » Terms & Billing.
+Scroll to the Anaconda section and click the Enable button. The Anaconda Packages (Preview Feature) dialog opens.
+Click the link to review the Snowflake Third Party Terms.
+If you agree to the terms, click the Acknowledge & Continue button.
