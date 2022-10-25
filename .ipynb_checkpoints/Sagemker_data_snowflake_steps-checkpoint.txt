@@ -49,3 +49,35 @@ copy into sagemaker_table
 from
 @snowflake_s3_stage/census-income.csv
 file_format = (format_name='public.csv_file_format');
+
+create or replace table snowpark_dataset (
+  checking_status varchar,
+  duration number,	
+  credit_history varchar,
+  purpose varchar,
+  credit_amount number,
+  savings_status varchar,
+  employment varchar,
+  installment_commitment number,
+  personal_status varchar,
+  ther_parties varchar,
+  residence_since number,
+  property_magnitude varchar,
+  age varchar,
+  other_payment_plans varchar,
+  housing varchar,
+  existing_credits number,
+  job varchar,
+  num_dependents number,
+  own_telephone varchar,
+  foreign_worker varchar,
+  class varchar
+);
+
+copy into snowpark_dataset 
+from
+@snowflake_s3_stage/credit-g.csv
+file_format = (format_name='public.csv_file_format');
+
+CREATE STAGE IF NOT EXISTS SNOWFLAKESTAGE
+COMMENT = 'Workshop Stage in Snowflake';
