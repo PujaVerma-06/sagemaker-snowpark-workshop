@@ -41,7 +41,7 @@ columns = [
 ]
 class_labels = [0, 1]
 
-CONNECTION_PARAMETERS = {
+connection_parameters = {
 "account": "",
 "user": "",
 "password": "",

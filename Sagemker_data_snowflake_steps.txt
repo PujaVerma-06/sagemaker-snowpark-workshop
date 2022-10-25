@@ -28,9 +28,9 @@ CREATE FILE FORMAT IF NOT EXISTS PUBLIC.CSV_FILE_FORMAT
     DATE_FORMAT = 'AUTO' TIMESTAMP_FORMAT = 'AUTO' NULL_IF = ('\\N');
 	
 CREATE STAGE IF NOT EXISTS SNOWFLAKE_S3_STAGE
-url = 's3://snowflake-stage-area/'
-credentials = (aws_key_id = 'AKIASJMB3XILZG3F2VOO'
-               aws_secret_key = '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')
+url = 's3://{snowflake-stage-area-bucket}/'
+credentials = (aws_key_id = ''
+               aws_secret_key = '')
 ;
 
 create or replace table sagemaker_table (

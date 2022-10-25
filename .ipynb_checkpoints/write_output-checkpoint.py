@@ -33,13 +33,13 @@ warnings.filterwarnings(action="ignore", category=DataConversionWarning)
 
 
 CONNECTION_PARAMETERS = {
-"account": "",
-"user": "",
-"password": "",
-"role": "",
-"warehouse": "",
-"database": "",
-"schema": "",
+"account": "gi02106.eu-west-2.aws",
+"user": "pujaverma",
+"password": "Itzme#123",
+"role": "accountadmin",
+"warehouse": "workshopwh",
+"database": "workshopdb",
+"schema": "workshopsch",
 }
     
 if __name__ == "__main__":
@@ -61,8 +61,8 @@ if __name__ == "__main__":
     snowflake_conn_session.sql(table_query).show()
     
     copy_data = """copy into inference_output
-    from 's3://{snowflake-stage-area-bucket}/batch-transform-output/test_features.csv.out'
-    credentials = (aws_key_id = '' aws_secret_key = '')
+    from 's3://snowflake-stage-area1/batch-transform-output/test_features.csv.out'
+    credentials = (aws_key_id = 'AKIA332DNHNSXTI2O5DH' aws_secret_key = '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')
     file_format = (format_name='public.csv_file_format');"""
     
     snowflake_conn_session.sql(copy_data).show()
