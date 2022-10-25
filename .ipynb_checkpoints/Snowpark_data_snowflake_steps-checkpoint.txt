@@ -1,6 +1,0 @@
-Log into Snowsight, the Snowflake web interface.
-Click the dropdown menu next to your login name, then click Switch Role » ORGADMIN to change to the organization administrator role.
-Click Admin » Billing » Terms & Billing.
-Scroll to the Anaconda section and click the Enable button. The Anaconda Packages (Preview Feature) dialog opens.
-Click the link to review the Snowflake Third Party Terms.
-If you agree to the terms, click the Acknowledge & Continue button.
